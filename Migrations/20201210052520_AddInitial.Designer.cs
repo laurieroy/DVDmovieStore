@@ -10,8 +10,8 @@ using Models;
 namespace DVDMovieStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201209004418_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201210052520_AddInitial")]
+    partial class AddInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,8 @@ namespace DVDMovieStore.Migrations
                     b.Property<string>("Category");
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("Name");
 

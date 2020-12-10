@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DVDMovieStore.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace DVDMovieStore.Migrations
                 {
                     MovieId = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Image = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
