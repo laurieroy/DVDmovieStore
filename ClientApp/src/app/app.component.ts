@@ -10,7 +10,12 @@ import { Repository } from './models/repository';
 export class AppComponent {
   title = 'the DVD store';
   constructor(private repo: Repository) {}
+  
   get movie(): Movie {
     return this.repo.movie;
+  }
+
+  get movies(): Movie[] {
+    return this.repo.movies;
   }
 }
