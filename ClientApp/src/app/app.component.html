@@ -1,6 +1,3 @@
-<div>
-  <app-nav-menu></app-nav-menu>
-</div>
 <div style="text-align: center">
   <h1>Welcome to {{ title }}!</h1>
   <img
@@ -13,7 +10,7 @@
 <table class="table table-sm table-striped">
   <tr>
     <th>Name</th>
-    <td>{{movie?.name}}</td>
+    <td>{{movie?.name || 'Loading Data...'}}</td>
   </tr>
   <tr>
     <th>Category</th>
