@@ -5,24 +5,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ModelModule } from './models/model.module';
-import { MovieTableComponent } from './structure/movie-table/movie-table.component';
-import { CategoryFilterComponent } from './structure/movie-table/categoryFilter.component';
-import { MovieDetailComponent } from './structure/movie-detail/movie-detail.component';
 import { RoutingConfig } from './app.routing';
+import { StoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryFilterComponent,
-    MovieTableComponent,
-    MovieDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ModelModule,
-    RoutingConfig
+    RoutingConfig,
+    StoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
