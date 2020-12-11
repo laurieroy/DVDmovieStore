@@ -15,4 +15,8 @@ export class MovieTableComponent {
     return this.repo.movies;
   }
 
+  selectMovie(id: number) {
+    this.repo.getMovie(id);
+  }
+
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Models
@@ -11,11 +10,6 @@ namespace Models
         public string State { get; set; }
 
         public IEnumerable<Movie> Movies { get; set; }
-        
-        
-        
-        
-        
         
     }
 }
