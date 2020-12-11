@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Controllers.BindingTargets;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +8,7 @@ using Models;
 
 namespace DVDMovieStore.Controllers
 {
-    [Route ("api/movies")]
+  [Route ("api/movies")]
     public class MovieController : Controller
     {
         private DataContext context;
@@ -51,7 +49,6 @@ namespace DVDMovieStore.Controllers
                 }
             }
             return result;
-
         }
 
         [HttpGet]

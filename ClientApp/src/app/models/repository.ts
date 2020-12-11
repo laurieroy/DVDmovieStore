@@ -30,7 +30,6 @@ export class Repository {
   }
 
   getMovie(id: number) {
-    // console.log("Movie Data Requested");
     return this.http.get(moviesUrl + '/' + id).subscribe((response) => {
       this.movie = response;
     });
@@ -137,5 +136,14 @@ export class Repository {
         this.getMovies();
         this.getStudios();
       });
+  }
+
+  storeSessionData(dataType: string, data: any) {
+    return this.http.post('/api/session/' + dataType, data)
+      .subscribe(response => {});
+  }
+
+  getSessionData(dataType: string): any {
+    return this.http.get('/api/session/' + dataType);
   }
 }

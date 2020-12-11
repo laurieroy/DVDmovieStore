@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.SqlServer" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,5 +51,12 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
-
+  <ItemGroup>
+      <TypeScriptCompile Include="ClientApp\src\app\models\cart.model.ts" />
+      <TypeScriptCompile Include="ClientApp\src\app\store\cart-detail\cartDetail.component.ts" />
+      <TypeScriptCompile Include="ClientApp\src\main.ts" />
+  </ItemGroup>
+  <ItemGroup>
+      <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
 </Project>

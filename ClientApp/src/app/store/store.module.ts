@@ -6,6 +6,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieSelectionComponent } from './movie-selection/movie-selection.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { RatingsComponent } from './ratings/ratings.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,10 @@ import { RatingsComponent } from './ratings/ratings.component';
     PaginationComponent,
     MovieListComponent,
     MovieSelectionComponent,
-    RatingsComponent
+    RatingsComponent,
+    CartDetailComponent
   ],
-  imports: [ BrowserModule],
+  imports: [ BrowserModule, FormsModule, RouterModule],
   exports: [MovieSelectionComponent]
 })
 export class StoreModule {}
