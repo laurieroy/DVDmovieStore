@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from '../../models/movie.model';
 import { Repository } from '../../models/repository';
 
@@ -9,7 +10,7 @@ import { Repository } from '../../models/repository';
 })
 export class MovieTableComponent {
 
-  constructor(private repo: Repository) { }
+  constructor(private repo: Repository, private router: Router) { }
 
   get movies(): Movie[] {
     return this.repo.movies;
@@ -17,6 +18,7 @@ export class MovieTableComponent {
 
   selectMovie(id: number) {
     this.repo.getMovie(id);
+    this.router.navigateByUrl('/detail');
   }
 
 }

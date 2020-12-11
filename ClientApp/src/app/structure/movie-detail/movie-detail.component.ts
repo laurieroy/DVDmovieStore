@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../models/movie.model';
 import { Repository } from '../../models/repository';
 
@@ -9,7 +10,15 @@ import { Repository } from '../../models/repository';
 })
 export class MovieDetailComponent {
 
-  constructor(private repo: Repository) { }
+  constructor(private repo: Repository, private router: Router,
+      private activeRoute: ActivatedRoute) {
+        const id = Number.parseInt(activeRoute.snapshot.params['id']);
+        if (id) {
+          this.repo.getMovie(id);
+        } else {
+          router.navigateByUrl('/');
+        }
+       }
 
   get movie(): Movie {
     return this.repo.movie;
