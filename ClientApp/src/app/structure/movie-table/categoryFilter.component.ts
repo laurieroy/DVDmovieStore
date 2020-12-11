@@ -9,8 +9,16 @@ import { Repository } from '../../models/repository';
 export class CategoryFilterComponent {
   public romanceCategory = 'romance';
   constructor (private repo: Repository) {}
-  setCategory(category: string) {
-    this.repo.filter.category = category;
+  get categories(): string[] {
+    return this.repo.categories;
+  }
+
+  get currentCategory(): string {
+    return this.repo.filter.category;
+  }
+  
+  setCurrentCategory(newCategory: string) {
+    this.repo.filter.category = newCategory;
     this.repo.getMovies();
   }
 }

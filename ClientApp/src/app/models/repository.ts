@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Filter } from './configClasses.repository';
+import { Filter, Pagination } from './configClasses.repository';
 import { Movie } from './movie.model';
 import { Studio } from './studio.model';
 
@@ -11,7 +11,10 @@ export class Repository {
   movie: Movie;
   movies: Movie[];
   studios: Studio[] = [];
+  categories: string[] = [];
+  // pagination: any;
   private filterObject = new Filter();
+  private paginationObject = new Pagination();
 
   constructor(private http: HttpClient) {
     // this.filter.category = 'drama';
@@ -20,6 +23,10 @@ export class Repository {
   }
   get filter(): Filter {
     return this.filterObject;
+  }
+
+  get pagination(): Pagination {
+    return this.paginationObject;
   }
 
   getMovie(id: number) {
@@ -38,9 +45,13 @@ export class Repository {
       url += '&search=' + this.filter.search;
     }
 
-    this.http
-      .get<Movie[]>(url)
-      .subscribe((response) => (this.movies = response));
+    url += '&metadata=true';
+    this.http.get<any>(url)
+      .subscribe(response => {
+        this.movies = response.data;
+        this.categories = response.categories;
+        this.pagination.currentPage = 1;
+    });
   }
 
   getStudios() {

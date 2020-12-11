@@ -12,7 +12,12 @@ export class MovieListComponent {
   constructor(private repo: Repository) { }
 
   get movies(): Movie[] {
-    return this.repo.movies;
+    if (this.repo.movies != null && this.repo.movies.length > 0) {
+      const pageIndex = (this.repo.pagination.currentPage - 1)
+          * this.repo.pagination.moviesPerPage;
+      return this.repo.movies.slice(pageIndex,
+          pageIndex + this.repo.pagination.moviesPerPage);
+  }
   }
 
 }
