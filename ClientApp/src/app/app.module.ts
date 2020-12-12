@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ModelModule } from './models/model.module';
 import { RoutingConfig } from './app.routing';
 import { StoreModule } from './store/store.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    AdminModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
