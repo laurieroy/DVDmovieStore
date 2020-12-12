@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
-using Controllers.BindingTargets;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.BindingTargets;
 
 namespace DVDMovieStore.Controllers
 {
-  [Route ("api/movies")]
+    [Route ("api/movies")]
     public class MovieController : Controller
     {
         private DataContext context;
@@ -83,25 +83,25 @@ namespace DVDMovieStore.Controllers
                         m.Ratings.ForEach (r => r.Movie = null);
                     }
                 });
-                return metadata ? CreateMetadata(data) : Ok(data);
+                return metadata ? CreateMetadata (data) : Ok (data);
             }
             else
             {
-                return metadata ? CreateMetadata(query) : Ok(query);
+                return metadata ? CreateMetadata (query) : Ok (query);
             }
         }
 
-    private IActionResult CreateMetadata(IEnumerable<Movie> movies)
-    {
-      return Ok(new
-      {
-          data = movies,
-          categories = context.Movies.Select(m => m.Category)
-            .Distinct().OrderBy(m => m)
-      });
-    }
+        private IActionResult CreateMetadata (IEnumerable<Movie> movies)
+        {
+            return Ok (new
+            {
+                data = movies,
+                    categories = context.Movies.Select (m => m.Category)
+                    .Distinct ().OrderBy (m => m)
+            });
+        }
 
-    [HttpPost]
+        [HttpPost]
         public IActionResult CreateMovie ([FromBody] MovieData mdata)
         {
             if (ModelState.IsValid)
@@ -143,8 +143,7 @@ namespace DVDMovieStore.Controllers
         }
 
         [HttpPatch ("{id}")]
-        public IActionResult UpdateMovie (long id,
-            [FromBody] JsonPatchDocument<MovieData> patch)
+        public IActionResult UpdateMovie (long id, [FromBody] JsonPatchDocument<MovieData> patch)
         {
             Movie movie = context.Movies
                 .Include (m => m.Studio)
@@ -166,12 +165,12 @@ namespace DVDMovieStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteMovie(long id)
+        [HttpDelete ("{id}")]
+        public IActionResult DeleteMovie (long id)
         {
-            context.Movies.Remove(new Movie { MovieId = id });
-            context.SaveChanges();
-            return Ok(id);
+            context.Movies.Remove (new Movie { MovieId = id });
+            context.SaveChanges ();
+            return Ok (id);
         }
     }
 }

@@ -9,6 +9,10 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { CartDetailComponent } from './cart-detail/cart-detail.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CheckoutDetailsComponent } from './checkout/checkoutDetails/checkoutDetails.component';
+import { CheckoutSummaryComponent } from './checkout/checkoutDetails/checkout-summary/checkout-summary.component';
+import { CheckoutPaymentComponent } from './checkout/checkoutDetails/checkoutPayment/checkoutPayment.component';
+import { OrderConfirmationComponent } from './checkout/checkoutDetails/orderConfirmation/orderConfirmation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { RouterModule } from '@angular/router';
     MovieListComponent,
     MovieSelectionComponent,
     RatingsComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    CheckoutDetailsComponent,
+    CheckoutSummaryComponent,
+    CheckoutPaymentComponent,
+    OrderConfirmationComponent
   ],
   imports: [ BrowserModule, FormsModule, RouterModule],
   exports: [MovieSelectionComponent]

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Models;
 
-namespace Controllers.BindingTargets
+namespace Models.BindingTargets
 {
     public class MovieData
     {

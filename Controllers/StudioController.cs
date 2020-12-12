@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Controllers.BindingTargets;
+using Models.BindingTargets;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
